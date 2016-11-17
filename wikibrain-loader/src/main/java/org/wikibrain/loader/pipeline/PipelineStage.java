@@ -133,12 +133,19 @@ public class PipelineStage {
 
     public boolean isNeeded(boolean forceRerun) {
         if (hasBeenRun()) {                             // if run this execution cycle, skip
+            System.out.println("* Skipping stage " + name + ": already run");
             return false;
         } else if (shouldRun != null && !shouldRun) {   // if user said not to run, skip
+            System.out.println("* Skipping stage " + name + ": shouldRun = " + shouldRun);
             return false;
         } else if (forceRerun) {                        // if we should rerun everything, rerun
             return true;
         } else {                                        // check to see if the class is loaded
+            System.out.println("* Skipping stage " + name + "?");
+            System.out.println("*  loadedInfo null? " + (loadedInfo == null));
+            if (loadedInfo != null) {
+                System.out.println("*  numRecords = " + loadedInfo.getNumRecords());
+            }
             return loadedInfo == null || loadedInfo.getNumRecords() == 0;
         }
     }
@@ -148,6 +155,7 @@ public class PipelineStage {
             stage.runWithDependenciesIfNeeded(cmdLineArgs, forceRerun);
         }
         if (isNeeded(forceRerun)) {
+            System.out.println("* About to run pipeline stage: " + name);
             run(cmdLineArgs);
         }
     }

@@ -124,12 +124,12 @@ public class Loader {
                     System.err.println("Diagnostics failed. Aborting execution.");
                     System.exit(1);
                 }
-                System.err.println("Beginning import process in 20 seconds...");
-                Thread.sleep(5000);
-                System.err.println("Beginning import process in 15 seconds...");
-                Thread.sleep(5000);
-                System.err.println("Beginning import process in 10 seconds...");
-                Thread.sleep(5000);
+//                System.err.println("Beginning import process in 20 seconds...");
+//                Thread.sleep(5000);
+//                System.err.println("Beginning import process in 15 seconds...");
+//                Thread.sleep(5000);
+//                System.err.println("Beginning import process in 10 seconds...");
+//                Thread.sleep(5000);
                 System.err.println("Beginning import process in 5 seconds...");
                 Thread.sleep(5000);
             }

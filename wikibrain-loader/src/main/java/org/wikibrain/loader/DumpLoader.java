@@ -222,6 +222,8 @@ public class DumpLoader {
             }
         }
 
+        LOG.info(paths.size() + " files found for loading.");
+
         // Schedule the biggest files first to improve parallel performance
         Collections.sort(paths, SizeFileComparator.SIZE_REVERSE);
 

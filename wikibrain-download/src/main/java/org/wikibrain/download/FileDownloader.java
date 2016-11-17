@@ -47,7 +47,9 @@ public class FileDownloader {
                 DownloadInfo info = new DownloadInfo(url);
                 DownloadMonitor monitor = new DownloadMonitor(info);
                 info.extract(stop, monitor);
-                info.enableMultipart();
+                if (info.multipart()) {
+                    info.enableMultipart();
+                }
                 file.getParentFile().mkdirs();
                 WGet wget = new WGet(info, file);
                 wget.download(stop, monitor);

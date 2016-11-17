@@ -196,8 +196,8 @@ public class JvmUtils {
         NAME_TO_CLASS = new HashMap<String, String>();
         for (File file : getClassPathAsList()) {
             if (file.length() > MAX_FILE_SIZE) {
-                LOG.debug("skipping looking for providers in large file " + file);
-                continue;
+                LOG.info("skipping looking for providers in large file " + file);
+                // continue;
             }
             ClassFinder finder = new ClassFinder();
             finder.add(file);
